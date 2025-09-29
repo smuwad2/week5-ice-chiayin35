@@ -163,6 +163,7 @@ app.get('/data', (req, res) => {
   });
 });
 
+// returns a list of all categories
 app.get('/categories', (req, res) => {
     const categories = [...new Set(supermarketItems.map(item => item.category))];
     if (categories && categories.length > 0) {
@@ -172,6 +173,8 @@ app.get('/categories', (req, res) => {
     }
 });
 
+// returns a list of all items as objects if no param
+// returns a list of all items as objects in that category given param of a category
 app.get('/items', (req, res) => {
     let selCategory = 0;
     if (req.query.category) {
